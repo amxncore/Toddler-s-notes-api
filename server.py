@@ -1,4 +1,5 @@
 import socket
+import json 
 
 HOST = "127.0.0.1"
 PORT = 9090
@@ -20,7 +21,8 @@ while True:
 
     try:
         if request.startswith("GET /notes"):
-            response_body = str(notes)
+            response_body = response_body = json.dumps(notes)
+
 
         elif request.startswith("POST /notes"):
             body = request.split("\r\n\r\n", 1)[1]
